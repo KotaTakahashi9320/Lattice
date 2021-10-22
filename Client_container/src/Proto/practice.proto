@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package practice;
+
+service Cryptography {
+    rpc Encryption(Sample) returns (Reply) {}
+}
+message Sample {
+  repeated double Message=1;
+  repeated double Key=2;
+  repeated double Uni=3;
+  repeated double Er=4;
+}
+message Reply{
+  repeated double res=1;
+}

@@ -1,0 +1,31 @@
+version: "3" 
+
+services:
+  client:
+    tty: true
+    build:
+      context: ./Client_container
+    container_name: client
+    hostname: client
+    volumes:
+      - ./Client_container/src:/src
+    ports:
+      - "8080:80"
+    networks:
+      - lattice
+  
+  server:
+    tty: true
+    build:
+      context: ./Server_container
+    container_name: server
+    hostname: server
+    volumes:
+      - ./Server_container/src:/src
+    ports:
+      - "8081:80"
+    networks:
+      - lattice
+networks:
+    lattice:
+        external: true
